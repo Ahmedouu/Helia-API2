@@ -3,7 +3,7 @@ const multer = require("multer");
 const app = express();
 const upload = multer()
 const {getPrivateIP} = require('./utils/privateIP')
-
+const {readFileContent} = require('./utils/filecheck') 
 console.log(getPrivateIP())
 let hashMap = new Map();
 
@@ -17,11 +17,19 @@ async function createNode(){
     const fs = unixfs(helia)
     return fs
 }
+app.post('/readfile', (req, res) => {
+    let filepath = req.body.filepath;
+    if(readFileContent(filepath)) {
+
+        res.send(readFileContent(filepath));
+    } else {
+        res.send('File does not exist.');
+    }
+});
 
 app.post('/upload', upload.single('file'), async (req, res) => {
     try{
     const data = req.file.buffer
-
     console.log(req.file) //we don't need this but it might be useful to have this data to reconstruct the file 
     //spawn helia node 
     const fs = await createNode();
