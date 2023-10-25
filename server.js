@@ -17,22 +17,37 @@ async function createNode(){
     const fs = unixfs(helia)
     return fs
 }
-app.post('/readfile', (req, res) => {
+//remote file reader based on path the cool stuff 
+app.post('/readfile', async (req, res) => {
     let filepath = req.body.filepath;
-    if(readFileContent(filepath)) {
+    let text;
+    const fs = await createNode();
 
-        res.send(readFileContent(filepath));
+    if(readFileContent(filepath)) {
+        const data = readFileContent(filepath)
+        const cid = await fs.addBytes(data) 
+        //file has been added to this node time to read it
+        try {const decoder = new TextDecoder() 
+         for await (const chunk of fs.cat(cid)) {
+                text = decoder.decode(chunk, {stream: true});
+                console.log("je marche dans la tempete", text)
+       
+    }}catch (error){
+        res.send('error while decoding the file://')
+    }
+        res.status(201).send(text)
+
     } else {
         res.send('File does not exist.');
     }
 });
 
 app.post('/upload', upload.single('file'), async (req, res) => {
+    
+    const fs = await createNode();
     try{
     const data = req.file.buffer
-    console.log(req.file) //we don't need this but it might be useful to have this data to reconstruct the file 
-    //spawn helia node 
-    const fs = await createNode();
+    console.log(req.file) //we don't need this but it might be useful to have this data to reconstruct the file   
     
     const cid = await fs.addBytes(data)
     hashMap.set(req.file.originalname, cid)
