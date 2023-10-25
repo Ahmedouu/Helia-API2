@@ -14,7 +14,6 @@ So I want an API with helia to store my files and I will retrieve them on my win
 
 For now I will just send a POST request to retrieve the content of the files on my remote machine and copy it, but we could download it as well.
 
-
 # Usage 
 
 ```
