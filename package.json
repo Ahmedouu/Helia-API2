@@ -1,0 +1,26 @@
+{
+  "name": "helia-api2",
+  "version": "1.0.0",
+  "description": "I promise you this one is useful well at least for me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmedouu/Helia-API2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmedouu/Helia-API2/issues"
+  },
+  "homepage": "https://github.com/Ahmedouu/Helia-API2#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "@helia/unixfs": "^1.4.2",
+    "helia": "^2.0.3",
+    "multer": "^1.4.5-lts.1"
+  }
+}
