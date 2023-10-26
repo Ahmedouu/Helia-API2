@@ -28,12 +28,14 @@ app.post('/readfile', async (req, res) => {
         const cid = await fs.addBytes(data) 
         
         //file has been added to this node time to read it
-        try {const decoder = new TextDecoder() 
-         for await (const chunk of fs.cat(cid)) {
+        try {
+            const decoder = new TextDecoder() 
+            for await (const chunk of fs.cat(cid)) {
                 text = decoder.decode(chunk, {stream: true});
        
-    }}catch (error){
-        res.send('error while decoding the file://')
+    }}
+        catch (error){
+            res.send('error while decoding the file://')
     }
         res.status(201).send(text)
 
