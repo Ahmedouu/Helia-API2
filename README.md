@@ -3,9 +3,9 @@
 I promise you this one is useful well at least for me 
 
 
-# Problem statement
+# Why make this
 
-For the past year I have been programming on linux, barely touched my windows machine, so one day I was exploring some packages because I couldn't find them on apt and decided it was time to try to manually install, my machine broke, it could be due to manual install or ubuntu security patch, it didn't brake totally but the GUI was gone I had just the TTY.
+For the past year I have been programming on ubuntu, barely touched my windows machine, so one day I was exploring some packages because I couldn't find them on apt and decided it was time to try to manually install, my machine broke, it could be due to manual install or ubuntu security patch, it didn't brake totally but the GUI was gone I had just the TTY.
 
 I could only run one server at a time and the terminal was overtaken.
 So I want an API to read and store a file on IPFS and I will retrieve it on a seperate machine before doing a fresh install, yea I tried sorting through the broken packages, no there is no easy fix.
