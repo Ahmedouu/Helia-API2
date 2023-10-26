@@ -2,8 +2,6 @@
 
 I promise you this one is useful well at least for me 
 
-This time I have a real problem at hand.
-
 
 # Problem statement
 
