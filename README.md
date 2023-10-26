@@ -20,7 +20,7 @@ For now I will just send a POST request to retrieve the content of the files on 
 npm install
 npm start
 ```
-This basically an extension of Helia-API, with an extra endpoint /readFile. 
+This basically an extension of https://github.com/Ahmedouu/Helia-API, with an extra endpoint /readFile. 
 This time tough the server will be pinned to your private IP, don't worry it will tell you what is your private IP.
 example of testing /readFile endpoint with powershell v5.1 to read from a server running on a linux machine:
 ```
