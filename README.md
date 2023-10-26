@@ -34,5 +34,5 @@ I thought about adding https because why not ! but I did some wiresharking and t
 
 # Questions
 
-is there a way to get mDNS to advertise the server ip so we the process becomes more automated ?
+is there a way to get mDNS to advertise the server ip so the process becomes more automated ?
 
