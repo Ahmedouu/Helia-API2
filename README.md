@@ -1,6 +1,5 @@
 # Helia-API2
 
-An API that allows you to read files from remote servers based on the location of the file.
 
 # Why make this
 
