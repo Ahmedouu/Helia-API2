@@ -24,7 +24,7 @@ Invoke-RestMethod -Uri 'http://ipaddress:3000/readfile' -Method Post -Body (@{'f
 ```
 To read from a server on a windows machine just change the path to match windows and maybe disable your firewall I am not sure.
 
-P.S: Start the server from the machine you want to read from.
+P.S: Start the server on the machine you want to read from.
 
 # Notes
 
