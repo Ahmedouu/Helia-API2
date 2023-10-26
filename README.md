@@ -24,6 +24,7 @@ example of testing /readFile endpoint with powershell to read from a server runn
 Invoke-RestMethod -Uri 'http://ipaddress:3000/readfile' -Method Post -Body (@{'filepath'='/home/yourusername/path/to/your/file.extension'} | ConvertTo-Json) -ContentType 'application/json'
 ```
 To read from a server on a windows machine just change the path to match windows and maybe disable your firewall I am not sure.
+
 P.S: Start the server from the machine you want to read from.
 
 # Notes
