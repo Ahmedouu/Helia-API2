@@ -5,7 +5,7 @@
 
 For the past year I have been programming on ubuntu, barely touched my windows machine, so one day my machine broke, it could be due to the ubuntu security patch, it didn't brake totally but the GUI was gone I had just the TTY.
 
-Using the TTY is fun but having to nano everytime just to look at some code or some text made me annoyed, moreover what if I want to run them and look at them at the same time?
+Using the TTY is fun but having to nano everytime just to look at some code or some text made me annoyed.
 
 I want an API to read and store a file on IPFS and I will retrieve it on a seperate machine before doing a fresh install, yea I tried sorting through the broken packages, no there is no easy fix, no I don't want to create a repo with all my files and move them into this repo, sometimes I don't even know what file I might want I just want an API running on the broken machine(A), and I send a request from working machine with the path to the file I want from (A).
 
@@ -34,5 +34,5 @@ I thought about adding https because why not ! but I did some wiresharking and t
 
 Is there a way to get mDNS to advertise the server ip so the process becomes more automated ?
 
-Why an API ? can't you just start a node on both machines and read your files, well then I would have to type the file location manually everytime, annoying.
+Why an API ? can't you just start a node on both machines and read your files, well then I would have to modify the code everytime and restart the server, annoying.
 
