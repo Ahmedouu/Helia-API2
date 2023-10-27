@@ -1,36 +1,46 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-let found = false;
+function searchForScript(scriptName, callback) {
+    // Get the root directory based on the operating system.
+    const rootDir = os.platform() === 'win32' ? 'C:\\' : '/';
 
-function findFiles(dir, filename, callback) {
-    if (found) return;
-    fs.readdir(dir, function(err, items) {
-        if (err) {
-            return callback(err);
-        }
-        items.forEach(function(item) {
-            if (found) return;
-            var fullPath = path.join(dir, item);
-            fs.stat(fullPath, function(err, stat) {
-                if (err) {
-                    return callback(err);
-                }
-                if (stat.isDirectory()) {
-                    findFiles(fullPath, filename, callback);
-                } else if (stat.isFile() && path.basename(fullPath) === filename) {
-                    found = true;
-                    callback(null, fullPath);
-                }
+    function search(dir) {
+        fs.readdir(dir, (err, files) => {
+            if (err) {
+                return callback(err);
+            }
+
+            files.forEach(file => {
+                const filePath = path.join(dir, file);
+
+                fs.stat(filePath, (err, stats) => {
+                    if (err) {
+                        return callback(err);
+                    }
+
+                    if (stats.isDirectory()) {
+                        // If it's a directory, recursively search it.
+                        search(filePath);
+                    } else if (file === scriptName) {
+                        // If it's the script you're looking for, execute the callback.
+                        callback(null, filePath);
+                    }
+                });
             });
         });
-    });
+    }
+
+    search(rootDir);
 }
 
-findFiles('/path/to/start', 'filename', function(err, fullPath) {
+const scriptName = 'yourScript.js';
+
+searchForScript(scriptName, (err, scriptPath) => {
     if (err) {
-        console.error(err);
+        console.error('Error:', err);
     } else {
-        console.log(fullPath);
+        console.log('Script found at:', scriptPath);
     }
 });
