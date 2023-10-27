@@ -36,4 +36,4 @@ Is there a way to get mDNS to advertise the server ip so the process becomes mor
 
 Why an API ? can't you just start a node on both machines and read your files, well then I would have to modify the code everytime and restart the server, annoying.
 
-Is it possible to find the file based on it's name and not the path ? Yes but it will make the API slower currently working on find the fastest way to do this.
+Is it possible to find the file based on it's name and not the path ? Yes but it will make the API slower and dealing with duplicates could be an issue.
