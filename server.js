@@ -3,7 +3,8 @@ const multer = require("multer");
 const app = express();
 const upload = multer()
 const {getPrivateIP} = require('./utils/privateIP')
-const {readFileContent} = require('./utils/filecheck') 
+const {readFileContent} = require('./utils/filecheck'); 
+const localtunnel = require('localtunnel');
 console.log(getPrivateIP())
 let hashMap = new Map();
 
@@ -87,9 +88,20 @@ app.get('/retreive', async (req, res)=>{
         res.send('well you up messed somewhere, make sure you upload the file')
         
     } 
-})
 
+})
+app.get('/testing', (req, res)=>{
+    res.send('testing ok ..')
+})
 
 const port = process.env.PORT || 3000;
 const host = getPrivateIP()
-app.listen(port, host, () => console.log(`I am listening on ${host}:${port}`));  
+/*
+app.listen(port, async() => {
+    
+    const tunnel = await localtunnel({port:port})
+    console.log(`I am listening on ${tunnel.url}:${port}`)});  */
+
+app.listen(port, host, async()=>{
+    console.log(`I am listening yoo ... ...  ${host} ${port}`)
+})
