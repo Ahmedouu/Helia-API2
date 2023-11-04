@@ -16,5 +16,4 @@ function getPrivateIP() {
   
   return 'WLAN IP not found';
 }
-
 module.exports = {getPrivateIP}

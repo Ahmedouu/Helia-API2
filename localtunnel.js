@@ -1,5 +1,6 @@
 const express = require('express');
 const localtunnel = require('localtunnel');
+/* Testing local tunnel for making my app available on the internet instead of using the private IP*/
 
 const app = express();
 

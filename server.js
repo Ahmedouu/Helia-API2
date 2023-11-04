@@ -17,12 +17,15 @@ async function createNode(){
     const { unixfs } = await import('@helia/unixfs')
     const fs = unixfs(helia)
     return fs
-}
+} 
+
+async function run(){
+    const fs = await createNode();
 //remote file reader based on path the cool stuff 
 app.post('/readfile', async (req, res) => {
     let filepath = req.body.filepath;
     let text;
-    const fs = await createNode();
+    
 
     if(readFileContent(filepath)) {
         const data = readFileContent(filepath)
@@ -47,7 +50,7 @@ app.post('/readfile', async (req, res) => {
 
 app.post('/upload', upload.single('file'), async (req, res) => {
     
-    const fs = await createNode();
+    
     try{
     const data = req.file.buffer
     console.log(req.file) //we don't need this but it might be useful to have this data to reconstruct the file   
@@ -62,10 +65,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   });
 
 app.get('/retreive', async (req, res)=>{
-    //spawn helia node
-    
-    const fs = await createNode();
-   
+  
     const filename = req.body.filename;
     let cid;
     let text;
@@ -104,4 +104,6 @@ app.listen(port, async() => {
 
 app.listen(port, host, async()=>{
     console.log(`I am listening yoo ... ...  ${host} ${port}`)
-})
+})}
+
+run();
