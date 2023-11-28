@@ -1,5 +1,6 @@
 # Helia-API2
-
+A video to understand how this api functions basically:
+https://www.youtube.com/watch?v=q5bKjuu3kdE&t=32s
 
 # Why make this
 
